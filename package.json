@@ -7,7 +7,9 @@
     "start": "npm run create-env && gulp",
     "seed": "npm run create-env && node seed",
     "posttest": "npm run lint && nsp check",
-    "create-env": "node -e \"var fs = require('fs'); fs.access('./.env', function(err) { if (err) { console.log('\\n\\ncreating .env file\\n\\n'); return fs.writeFileSync('./.env', ''); } console.log('\\n\\n.env file present\\n\\n'); });\""
+    "create-env": "node -e \"var fs = require('fs'); fs.access('./.env', function(err) { if (err) { console.log('\\n\\ncreating .env file\\n\\n'); return fs.writeFileSync('./.env', ''); } console.log('\\n\\n.env file present\\n\\n'); });\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "babel-core": "^6.14.0",
@@ -40,7 +42,8 @@
     "redux-thunk": "^2.1.0",
     "rxjs": "^5.0.0-beta.12",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^1.0.1"
+    "strong-error-handler": "^1.0.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-loader": "^6.2.5",
@@ -69,5 +72,6 @@
     "url": ""
   },
   "license": "BSD-3-Clause",
-  "description": "advanced-redux"
+  "description": "advanced-redux",
+  "snyk": true
 }
